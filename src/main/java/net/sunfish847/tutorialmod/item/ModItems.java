@@ -11,6 +11,7 @@ import net.sunfish847.tutorialmod.TutorialMod;
 
 public class ModItems {
     public static final Item PINK_GARNET = registerItem("pink_garnet", new Item(new Item.Settings()));
+    public static final Item RAW_PINK_GARNET = registerItem("raw_pink_garnet",new Item(new Item.Settings()));
 
 
     private static Item registerItem(String name, Item item){
@@ -19,7 +20,7 @@ public class ModItems {
 
     public static void registerModItems() {
         TutorialMod.LOGGER.info("Registering Mod Items for " + TutorialMod.MOD_ID);
-
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(Entries -> Entries.add(RAW_PINK_GARNET) );
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(Entries -> {
             Entries.add(PINK_GARNET);
         });
